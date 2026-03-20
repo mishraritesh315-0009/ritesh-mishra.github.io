@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ritesh Mishra | HR Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1208;
+    --cream: #f7f3ec;
+    --sand: #e8dfc8;
+    --gold: #c49a2e;
+    --rust: #b84f2a;
+    --muted: #7a6e5f;
+    --white: #fdfaf5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: rgba(247,243,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 900;
+    letter-spacing: .04em;
+    color: var(--ink);
+  }
+  .nav-logo span { color: var(--rust); }
+  nav ul { list-style: none; display: flex; gap: 2.2rem; }
+  nav ul a {
+    text-decoration: none; color: var(--muted);
+    font-size: .82rem; font-weight: 500; letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  nav ul a:hover { color: var(--rust); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 74px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+  }
+  .hero-eyebrow {
+    font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--rust); font-weight: 500; margin-bottom: 1.4rem;
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 28px; height: 1.5px; background: var(--rust);
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    font-weight: 900; line-height: 1.05;
+    color: var(--ink); margin-bottom: 1.2rem;
+  }
+  .hero-name em { font-style: italic; color: var(--rust); }
+  .hero-title {
+    font-size: 1rem; color: var(--muted); font-weight: 300;
+    line-height: 1.7; max-width: 420px; margin-bottom: 2.8rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--ink); color: var(--cream);
+    padding: .82rem 2rem; border-radius: 2px;
+    text-decoration: none; font-size: .82rem;
+    letter-spacing: .08em; text-transform: uppercase; font-weight: 500;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: var(--rust); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--ink); color: var(--ink);
+    padding: .82rem 2rem; border-radius: 2px;
+    text-decoration: none; font-size: .82rem;
+    letter-spacing: .08em; text-transform: uppercase; font-weight: 500;
+    transition: border-color .2s, color .2s;
+  }
+  .btn-outline:hover { border-color: var(--rust); color: var(--rust); }
+
+  .hero-right {
+    background: var(--sand);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-bg-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem; font-weight: 900; color: rgba(196,154,46,.08);
+    position: absolute; right: -3rem; bottom: -2rem;
+    line-height: 1; user-select: none; pointer-events: none;
+  }
+  .hero-card {
+    background: var(--white); border-radius: 4px;
+    padding: 3rem 2.5rem; max-width: 320px;
+    box-shadow: 24px 24px 0 var(--gold);
+    position: relative; z-index: 2;
+    animation: floatCard 6s ease-in-out infinite;
+  }
+  @keyframes floatCard {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hcard-badge {
+    display: inline-block; background: var(--rust);
+    color: #fff; font-size: .65rem; letter-spacing: .12em;
+    text-transform: uppercase; padding: .25rem .7rem;
+    border-radius: 2px; margin-bottom: 1.4rem; font-weight: 500;
+  }
+  .hcard-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; margin-bottom: .3rem;
+  }
+  .hcard-role { color: var(--muted); font-size: .85rem; margin-bottom: 1.6rem; }
+  .hcard-stat {
+    border-top: 1px solid var(--sand); padding-top: 1.4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .stat-item strong {
+    display: block; font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 900; color: var(--rust);
+  }
+  .stat-item span { font-size: .72rem; color: var(--muted); letter-spacing: .05em; }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 7rem 5rem; }
+  .section-label {
+    font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--rust); font-weight: 500;
+    display: flex; align-items: center; gap: .6rem; margin-bottom: 1.2rem;
+  }
+  .section-label::before { content:''; width:20px; height:1.5px; background:var(--rust); }
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900; line-height: 1.15; margin-bottom: 3.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem;
+    align-items: center;
+  }
+  .about-text p {
+    color: var(--muted); line-height: 1.8;
+    font-size: .96rem; margin-bottom: 1.2rem;
+  }
+  .about-pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
+  .pill {
+    background: var(--sand); color: var(--ink);
+    padding: .38rem .9rem; border-radius: 2px;
+    font-size: .75rem; font-weight: 500; letter-spacing: .04em;
+  }
+  .about-visual {
+    background: var(--sand); border-radius: 4px;
+    padding: 2.5rem; position: relative;
+  }
+  .about-visual::before {
+    content: '"'; font-family: 'Playfair Display', serif;
+    font-size: 10rem; color: var(--gold); opacity: .25;
+    position: absolute; top: -1.5rem; left: 1rem;
+    line-height: 1; pointer-events: none;
+  }
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 400; font-style: italic;
+    line-height: 1.7; color: var(--ink); position: relative; z-index: 1;
+  }
+  .quote-author {
+    margin-top: 1.2rem; font-size: .75rem; color: var(--muted);
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--cream); }
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 3rem; padding: 2.5rem 0; border-top: 1px solid var(--sand);
+    position: relative;
+  }
+  .exp-item:last-child { border-bottom: 1px solid var(--sand); }
+  .exp-meta { }
+  .exp-period {
+    font-size: .72rem; color: var(--rust); letter-spacing: .1em;
+    text-transform: uppercase; font-weight: 500; margin-bottom: .5rem;
+  }
+  .exp-company {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700; margin-bottom: .3rem;
+  }
+  .exp-via { font-size: .75rem; color: var(--muted); }
+  .exp-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;
+  }
+  .exp-content ul { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+  .exp-content ul li {
+    font-size: .9rem; color: var(--muted); line-height: 1.65;
+    padding-left: 1.2rem; position: relative;
+  }
+  .exp-content ul li::before {
+    content: '—'; position: absolute; left: 0; color: var(--rust);
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--ink); color: var(--cream); }
+  #skills .section-label::before { background: var(--gold); }
+  #skills .section-label { color: var(--gold); }
+  #skills .section-heading { color: var(--cream); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .skill-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 4px; padding: 1.8rem;
+    transition: background .25s, border-color .25s, transform .2s;
+    cursor: default;
+  }
+  .skill-card:hover {
+    background: rgba(196,154,46,.12);
+    border-color: var(--gold); transform: translateY(-3px);
+  }
+  .skill-card h4 {
+    font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; font-weight: 500;
+  }
+  .skill-card ul { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+  .skill-card ul li {
+    font-size: .85rem; color: rgba(247,243,236,.75); line-height: 1.5;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--white); }
+  .project-card {
+    background: var(--cream); border-radius: 4px; padding: 3rem;
+    display: grid; grid-template-columns: 1fr auto; gap: 2rem;
+    align-items: start; position: relative; overflow: hidden;
+    transition: box-shadow .25s;
+  }
+  .project-card:hover { box-shadow: 12px 12px 0 var(--sand); }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%; background: var(--rust);
+  }
+  .project-tag {
+    display: inline-block; background: var(--sand);
+    font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); padding: .25rem .7rem; border-radius: 2px;
+    font-weight: 500; margin-bottom: 1rem;
+  }
+  .project-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; margin-bottom: .8rem;
+  }
+  .project-card p { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+  .project-metric {
+    text-align: right; min-width: 120px;
+  }
+  .project-metric strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: var(--rust); line-height: 1;
+    display: block;
+  }
+  .project-metric span { font-size: .72rem; color: var(--muted); letter-spacing: .08em; }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--cream); }
+  .edu-timeline { display: flex; flex-direction: column; gap: 0; }
+  .edu-item {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 2.5rem; padding: 2rem 0;
+    border-top: 1px solid var(--sand); position: relative;
+  }
+  .edu-item:last-child { border-bottom: 1px solid var(--sand); }
+  .edu-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 900; color: var(--gold);
+    padding-top: .15rem;
+  }
+  .edu-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem;
+  }
+  .edu-content p { font-size: .85rem; color: var(--muted); }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--sand); }
+  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .cert-card {
+    background: var(--white); border-radius: 4px;
+    padding: 1.8rem; transition: transform .2s;
+  }
+  .cert-card:hover { transform: translateY(-3px); }
+  .cert-icon {
+    width: 36px; height: 36px; background: var(--rust);
+    border-radius: 2px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .cert-icon svg { width: 18px; height: 18px; fill: #fff; }
+  .cert-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem; font-weight: 700; margin-bottom: .4rem;
+  }
+  .cert-card p { font-size: .75rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── CONTACT / FOOTER ── */
+  #contact {
+    background: var(--ink); color: var(--cream);
+    text-align: center; padding: 7rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  #contact::before {
+    content: 'HR'; font-family: 'Playfair Display', serif;
+    font-size: 22rem; font-weight: 900; color: rgba(255,255,255,.03);
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; user-select: none;
+  }
+  #contact .section-label { justify-content: center; color: var(--gold); }
+  #contact .section-label::before { background: var(--gold); }
+  #contact .section-heading { color: var(--cream); margin-bottom: 1rem; }
+  .contact-sub {
+    color: rgba(247,243,236,.55); font-size: .95rem; margin-bottom: 3rem;
+  }
+  .contact-links {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 1.5rem; margin-bottom: 4rem;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: .6rem;
+    color: var(--cream); text-decoration: none;
+    font-size: .85rem; letter-spacing: .06em;
+    border-bottom: 1px solid rgba(247,243,236,.2);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .contact-link:hover { color: var(--gold); border-color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 2rem; margin-top: 2rem;
+    font-size: .72rem; color: rgba(247,243,236,.35);
+    letter-spacing: .08em;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { gap: 1.2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 5rem 2rem 3rem; }
+    .hero-right { min-height: 380px; padding: 3rem 2rem; }
+    #about { grid-template-columns: 1fr; padding: 4rem 2rem; }
+    section { padding: 5rem 2rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: .8rem; }
+    .edu-item { grid-template-columns: 80px 1fr; gap: 1.2rem; }
+    .project-card { grid-template-columns: 1fr; }
+    .project-metric { text-align: left; }
+  }
+  @media (max-width: 600px) {
+    .skills-grid, .cert-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ritesh<span>.</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">HR Professional &amp; MBA Candidate</div>
+    <h1 class="hero-name">Ritesh<br><em>Mishra</em></h1>
+    <p class="hero-title">MBA student specialising in Human Resource Management &amp; International Business, with hands-on experience in recruitment, employee engagement, and HR analytics.</p>
+    <div class="hero-ctas">
+      <a href="https://www.linkedin.com/in/ritesh-mishra-67983b1b0" target="_blank" class="btn-primary">Connect on LinkedIn</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-text">HR</div>
+    <div class="hero-card">
+      <div class="hcard-badge">Open to Opportunities</div>
+      <div class="hcard-name">Ritesh Mishra</div>
+      <div class="hcard-role">HR &amp; Talent Acquisition Enthusiast</div>
+      <div class="hcard-stat">
+        <div class="stat-item">
+          <strong>MBA</strong>
+          <span>HRM &amp; Intl. Business</span>
+        </div>
+        <div class="stat-item">
+          <strong>40%</strong>
+          <span>Reporting Efficiency ↑</span>
+        </div>
+        <div class="stat-item">
+          <strong>3+</strong>
+          <span>Certifications</span>
+        </div>
+        <div class="stat-item">
+          <strong>2026</strong>
+          <span>Graduation Year</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text fade-in">
+    <div class="section-label">About Me</div>
+    <h2 class="section-heading">People-first<br>thinking, data-<br>backed decisions</h2>
+    <p>I am an MBA candidate at Future University, Bareilly, majoring in Human Resource Management and International Business. My passion lies at the intersection of people strategy and analytics — understanding what drives teams and translating that into actionable HR practices.</p>
+    <p>From building Excel-powered attendance dashboards to completing a virtual HR program with GE Aerospace, I bring both technical rigour and a genuine enthusiasm for people development to every role.</p>
+    <div class="about-pills">
+      <span class="pill">Talent Acquisition</span>
+      <span class="pill">HR Analytics</span>
+      <span class="pill">Power BI</span>
+      <span class="pill">MS Excel</span>
+      <span class="pill">Employee Engagement</span>
+      <span class="pill">Compensation & Benefits</span>
+    </div>
+  </div>
+  <div class="about-visual fade-in">
+    <p class="quote-text">"The right people in the right roles, supported by the right data — that is the foundation of every great organisation."</p>
+    <p class="quote-author">— Ritesh Mishra</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label fade-in">Experience</div>
+  <h2 class="section-heading fade-in">What I've Built</h2>
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">Jul – Aug 2025</div>
+      <div class="exp-company">GE Aerospace</div>
+      <div class="exp-via">via Forage</div>
+    </div>
+    <div class="exp-content">
+      <h3>HR Virtual Experience Program</h3>
+      <ul>
+        <li>Managed the full hiring lifecycle — job descriptions, candidate sourcing, application review, and interview coordination.</li>
+        <li>Developed salary structures, employee benefits packages, and reward plans aligned with strategic company goals.</li>
+        <li>Delivered competency-based feedback in simulated HR scenarios, improving team effectiveness through skill-based appraisals.</li>
+        <li>Gained practical insight into HR operations, compliance frameworks, and people management within a global enterprise.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label fade-in">Core Competencies</div>
+  <h2 class="section-heading fade-in">Skills &amp; Tools</h2>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <h4>Recruitment &amp; Talent</h4>
+      <ul>
+        <li>Talent Acquisition</li>
+        <li>Applicant Tracking Systems (ATS)</li>
+        <li>Job Description Writing</li>
+        <li>Interview Coordination</li>
+      </ul>
+    </div>
+    <div class="skill-card fade-in">
+      <h4>HR Operations</h4>
+      <ul>
+        <li>Employee Onboarding &amp; Offboarding</li>
+        <li>Performance Management</li>
+        <li>Compensation &amp; Benefits</li>
+        <li>HR Generalist Functions</li>
+      </ul>
+    </div>
+    <div class="skill-card fade-in">
+      <h4>People &amp; Engagement</h4>
+      <ul>
+        <li>Employee Engagement</li>
+        <li>Retention Strategies</li>
+        <li>Workforce Planning</li>
+        <li>HR Analytics</li>
+      </ul>
+    </div>
+    <div class="skill-card fade-in">
+      <h4>Excel &amp; Reporting</h4>
+      <ul>
+        <li>Pivot Tables &amp; Advanced Formulae</li>
+        <li>Interactive Dashboards</li>
+        <li>MIS Reporting</li>
+        <li>Data Validation</li>
+      </ul>
+    </div>
+    <div class="skill-card fade-in">
+      <h4>Power BI</h4>
+      <ul>
+        <li>Interactive Dashboards</li>
+        <li>Data Visualisation</li>
+        <li>Workforce Reports</li>
+        <li>Business Insights</li>
+      </ul>
+    </div>
+    <div class="skill-card fade-in">
+      <h4>Soft Skills</h4>
+      <ul>
+        <li>Strong Communication</li>
+        <li>Detail-Oriented</li>
+        <li>Team Collaborator</li>
+        <li>Adaptable &amp; Motivated</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label fade-in">Projects</div>
+  <h2 class="section-heading fade-in">Work That Speaks</h2>
+  <div class="project-card fade-in">
+    <div>
+      <div class="project-tag">MS Excel · HR Analytics</div>
+      <h3>Employee Attendance Tracker</h3>
+      <p>Engineered a comprehensive attendance tracking system in MS Excel, leveraging colour-coded conditional formatting, robust data validation rules, and dynamic smart formulae. Delivered a summary dashboard enabling HR managers to read key workforce metrics at a glance — eliminating the need for manual record checks and dramatically cutting reporting time.</p>
+    </div>
+    <div class="project-metric">
+      <strong>40%</strong>
+      <span>Faster HR<br>Reporting</span>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label fade-in">Education</div>
+  <h2 class="section-heading fade-in">Academic Journey</h2>
+  <div class="edu-timeline">
+    <div class="edu-item fade-in">
+      <div class="edu-year">2026</div>
+      <div class="edu-content">
+        <h3>MBA — Human Resource Management &amp; International Business</h3>
+        <p>Future University, Bareilly, Uttar Pradesh &nbsp;·&nbsp; 2024 – 2026</p>
+      </div>
+    </div>
+    <div class="edu-item fade-in">
+      <div class="edu-year">2021</div>
+      <div class="edu-content">
+        <h3>Bachelor of Science (B.Sc.)</h3>
+        <p>HP Institute of Higher Education, Budaun, Uttar Pradesh &nbsp;·&nbsp; 2018 – 2021</p>
+      </div>
+    </div>
+    <div class="edu-item fade-in">
+      <div class="edu-year">2019</div>
+      <div class="edu-content">
+        <h3>Diploma in Paint Technology</h3>
+        <p>Government Polytechnic, Budaun, Uttar Pradesh &nbsp;·&nbsp; 2017 – 2019</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label fade-in">Credentials</div>
+  <h2 class="section-heading fade-in">Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card fade-in">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8v.18L12 12 4 8.18V8l8-3.82zM4 10.18l8 3.82 8-3.82V17l-8 4-8-4v-6.82z"/></svg>
+      </div>
+      <h4>HR &amp; Talent Acquisition</h4>
+      <p>Reliance Skill Academy — Skill India &amp; NSDC</p>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
+      </div>
+      <h4>Microsoft Power BI</h4>
+      <p>Data Visualisation &amp; Dashboard Reporting</p>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 3l5 9H7l5-9z"/></svg>
+      </div>
+      <h4>Advanced Microsoft Excel</h4>
+      <p>Data Analysis &amp; Reporting</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Let's Connect</div>
+  <h2 class="section-heading">Ready for the<br>Right Opportunity</h2>
+  <p class="contact-sub">Open to entry-level HR roles, internships, and collaborations across talent, people analytics, and HR operations.</p>
+  <div class="contact-links">
+    <a href="mailto:mishraritesh315@gmail.com" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      mishraritesh315@gmail.com
+    </a>
+    <a href="tel:+919536890192" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      +91-9536890192
+    </a>
+    <a href="https://www.linkedin.com/in/ritesh-mishra-67983b1b0" target="_blank" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-3a2 2 0 110-4 2 2 0 010 4z"/></svg>
+      LinkedIn Profile
+    </a>
+    <a href="#" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+      Bareilly, Uttar Pradesh
+    </a>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Ritesh Mishra &nbsp;·&nbsp; Crafted to stand out &nbsp;·&nbsp; All rights reserved
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Staggered children animation
+  document.querySelectorAll('.skills-grid, .cert-grid').forEach(grid => {
+    [...grid.children].forEach((child, i) => {
+      child.style.transitionDelay = `${i * 80}ms`;
+    });
+  });
+</script>
+</body>
+</html>
